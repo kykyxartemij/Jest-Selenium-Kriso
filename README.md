@@ -1,78 +1,67 @@
-# Selenium & Jest Test Automation – Kriso.ee Webshop (Part I & II)
+# Selenium + Jest Test Automation – Kriso.ee Webshop
 
-Your task is to create automated tests for the [Kriso.ee](https://www.kriso.ee/) bookshop based on the described test cases below.
-
-## 🚀 How to Get Started
-
-1. **Fork** this repository into your own GitHub account  
-2. **Clone** the forked repository to your local machine:  
-   ```bash
-   git clone <your-repo-url>
-   ```
-3. **Install dependencies** with:  
-   ```bash
-   npm install
-   ```
-4. **Write tests** based on the test case descriptions below  
-5. **Run tests** locally to confirm they pass:  
-   ```bash
-   npm test
-   ```
-   or  
-   ```bash
-   npx jest
-   ```
-6. **Commit** your changes  
-7. **Create a Pull Request** back to the original repository  
-8. ✅ You will be graded if:
-   - Tests are completed
-   - Page Object Pattern is followed
+## Name: Artemiy Vorozhun
+## Group: TA_22V  
 
 ---
 
-## ✅ Test Cases
+## Purpose of the Task
 
-### 🔍 Search for Books by Keywords
+Create automated UI tests for the website [https://www.kriso.ee](https://www.kriso.ee) based on the provided test cases using:
 
-| Steps                                                | Expected Result (Assertions)                                                                       |
-|------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| Open [https://www.kriso.ee](https://www.kriso.ee)    | Confirm the page has a Kriso title/logo                                                            |
-| Search for keyword “harry potter”                    | Confirm multiple products are shown                                                                |
-|                                                      | All listed items contain the searched keyword in their title or description                        |
-|                                                      | Products can be sorted                                                                             |
-| Sort results by price                                | Verify products are sorted in the expected order (e.g., low to high or high to low)                |
-| Filter by language (e.g., English)                   | Verify only products in that language appear                                                       |
-| Filter by format (e.g., “Kõvakaaneline” / hardback) | Confirm fewer items are listed and all match the selected format                                   |
+- Selenium WebDriver
+- Jest
+- Page Object Pattern
 
 ---
 
-### 🛒 Add Books to Shopping Cart
+## Implemented Tests
 
-| Steps                                           | Expected Result (Assertions)                                      |
-|------------------------------------------------|-------------------------------------------------------------------|
-| Open [https://www.kriso.ee](https://www.kriso.ee) | Confirm the page has a Kriso title/logo                         |
-| Search for any keyword                          | Confirm multiple results are shown                               |
-|                                                | Products can be added to the shopping cart                       |
-| Add one book to the cart                        | Confirm the cart shows 1 item                                    |
-| Add a second book                               | Confirm the cart updates to show 2 items                         |
-| Click the cart/checkout icon                    | Confirm the user is navigated to the cart view                   |
-|                                                | Verify cart contains 2 correct items                             |
-|                                                | Verify the total price is accurate                               |
-| Remove the first item from cart                 | Confirm the cart now shows 1 item                                |
-|                                                | Confirm the correct item was removed                            |
-|                                                | Verify the total price updates accordingly                       |
+### 1. Search for Books by Keywords (`search.test.js`)
+
+| Action                                         | Result                                                                   |
+|-----------------------------------------------|---------------------------------------------------------------------------|
+| Open the website and verify the logo          | Timeout in `beforeAll`                                                   |
+| Search for the keyword "harry potter"         | Timeout in `beforeAll`                                                   |
+| Verify that results are found                 | Timeout in `beforeAll`                                                   |
+| Verify that titles contain the keyword        | Timeout in `beforeAll`                                                   |
+| Sort results by price                         | Timeout in `beforeAll`                                                   |
+| Filter results by language (English)          | Timeout in `beforeAll`                                                   |
+| Filter results by format (Kõvakaaneline)      | Timeout in `beforeAll`                                                   |
 
 ---
 
-### 🧭 Navigate Products via Filters
+### 2. Add Books to Shopping Cart (`cart.test.js`)
 
-| Steps                                                    | Expected Result (Assertions)                                          |
-|----------------------------------------------------------|------------------------------------------------------------------------|
-| Open [https://www.kriso.ee](https://www.kriso.ee)        | Confirm the page has a Kriso title/logo                              |
-| Scroll down to find a section like “Muusikaraamatud ja noodid”         | Confirm the section is visible                                       |
-| Click the "Õppematerjalid" category               | Verify that there are more than 1 products found              |
-|                                                          | Confirm URL or page title reflects navigation correctly              |
-| Click on a category ("Bänd ja ansambel")      | Confirm active filters show the selected category                    |
-|                                                          | Verify products list now contains less items                              |
-| Click on a format category ("CD")      | Confirm active filters show the selected category                    |
-|                                                          | Verify products list now contains less items                              |
+| Action                                         | Result                                                                   |
+|-----------------------------------------------|---------------------------------------------------------------------------|
+| Verify the logo on the homepage               | Timeout in `beforeAll`                                                   |
+| Add the first book to the shopping cart       | Timeout in `beforeAll`                                                   |
+| Continue shopping after adding the first book | Timeout in `beforeAll`                                                   |
+| Add the second book to the shopping cart      | Timeout in `beforeAll`                                                   |
+| Verify that the cart contains two books       | Timeout in `beforeAll`                                                   |
+| Verify the total sum of two books             | Timeout in `beforeAll`                                                   |
+| Remove one book from the shopping cart        | Timeout in `beforeAll`                                                   |
+| Verify the total sum after removing one book  | Timeout in `beforeAll`                                                   |
+| Verify that the cart is empty after removing all books | Timeout in `beforeAll`                                                   |
+
+---
+
+### 3. Navigate Products via Filters (`menu.test.js`)
+
+| Action                                         | Result                                                                   |
+|-----------------------------------------------|---------------------------------------------------------------------------|
+| Navigate to the category “Muusikaraamatud ja noodid” | Timeout in `beforeAll`                                                   |
+| Navigate to the subcategory "Õppematerjalid"   | Timeout in `beforeAll`                                                   |
+| Apply the filter "Bänd ja ansambel"           | Timeout in `beforeAll`                                                   |
+| Apply the format filter "CD"                  | Timeout in `beforeAll`                                                   |
+| Verify no results for invalid filter combinations | Timeout in `beforeAll`                                                   |
+
+---
+
+## Installation and Execution
+
+### Install Dependencies
+```bash
+npm install
+```
